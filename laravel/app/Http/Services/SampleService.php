@@ -11,5 +11,15 @@ use App\Repositories\SampleRepository;
  */
 class SampleService
 {
-    //
+    public function __construct(
+        SampleRepository $sampleRepository
+    ) {
+        $this->sampleRepository = $sampleRepository;
+    }
+
+    public function getNihonCalendar($month)
+    {
+        $nihonCalendar = $this->sampleRepository->getNihonCalendar($month);
+        return $nihonCalendar;
+    }
 }

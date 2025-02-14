@@ -21,6 +21,8 @@ class SampleController extends BaseController
     public function post(Request $request): JsonResponse
     {
         $month = $request->input('month');
+        $nihonCalendar = $sample->getNihonCalendar($month);
+        $englishCalendar = $this->sample->post($month, $calendar);
 
         return response()->json(['message' => 'ハロー']);
     }
