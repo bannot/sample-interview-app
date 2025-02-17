@@ -18,7 +18,6 @@ class CalenderController extends BaseController
         $englishCalendar = $this->getEnglishCalendarMonth($month);
         return response()->json([
             'calender' => [
-                // 'number' => $month,
                 'nihon' => $nihonCalendar,
                 'english' => $englishCalendar
             ]
