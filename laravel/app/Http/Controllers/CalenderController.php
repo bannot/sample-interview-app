@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use App\Services\CalenderService;
 
 class CalenderController extends BaseController
@@ -18,22 +17,23 @@ class CalenderController extends BaseController
         $this->calendar = $calendar;
     }
 
-    public function post(Request $request): JsonResponse
+    public function put($month): JsonResponse
     {
-        dd('tet');
-        $month = $request->input('month');
         $nihonCalendar =$this->calendar->getNihonCalendarData($month);
         $englishCalendar = $this->getEnglishCalendarMonth($month);
 
         return response()->json([
-            'nihonCalendar' => $nihonCalendar,
-            'englishCalendar' => $englishCalendar
+            'calender' => [
+                // 'number' => $month,
+                'nihon' => $nihonCalendar,
+                'english' => $englishCalendar
+            ]
         ]);
     }
 
     public function getEnglishCalendarMonth(int $month): string
     {
-        $months = [
+        $englishCalendarData = [
             1 => 'January',
             2 => 'February',
             3 => 'March',
@@ -47,7 +47,6 @@ class CalenderController extends BaseController
             11 => 'November',
             12 => 'December'
         ];
-
-        return $months[$month] ?? 'Invalid month';
+        return $englishCalendarData[$month];
     }
 }

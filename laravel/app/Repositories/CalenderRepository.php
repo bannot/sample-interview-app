@@ -7,10 +7,11 @@ namespace App\Repositories;
  * @package App\Repositories
  */
 class CalenderRepository {
-    // 仮定としてDB層にアクセスするためのリポジトリ層
+    // 仮定としてDB層にアクセスするためのリポジトリ層。DBに接続したものと仮定し、idカラムとmonthカラムがあるテーブルにデータ取得するとする。
     public function getNihonCalendarData($month)
     {
         $nihonCalendarData = [
+            // キー：idカラム、バリュー：monthカラム
             1 => '1月',
             2 => '2月',
             3 => '3月',
@@ -24,7 +25,6 @@ class CalenderRepository {
             11 => '11月',
             12 => '12月'
         ];
-    
-        return $nihonCalendarData[$nihonCalendarData] ?? '無効な月';
+        return $nihonCalendarData[$month];
     }
 }
