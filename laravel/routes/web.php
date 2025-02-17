@@ -14,5 +14,5 @@ use App\Http\Controllers\CalenderController;
 |
 */
 
-Route::get('/calender', [CalenderController::class, 'post']);
+Route::get('/calender/get', [CalenderController::class, 'post']);
 

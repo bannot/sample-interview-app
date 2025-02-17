@@ -20,10 +20,34 @@ class CalenderController extends BaseController
 
     public function post(Request $request): JsonResponse
     {
+        dd('tet');
         $month = $request->input('month');
         $nihonCalendar =$this->calendar->getNihonCalendarData($month);
-        $englishCalendar = 
+        $englishCalendar = $this->getEnglishCalendarMonth($month);
 
-        return response()->json(['message' => 'ハロー']);
+        return response()->json([
+            'nihonCalendar' => $nihonCalendar,
+            'englishCalendar' => $englishCalendar
+        ]);
+    }
+
+    public function getEnglishCalendarMonth(int $month): string
+    {
+        $months = [
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December'
+        ];
+
+        return $months[$month] ?? 'Invalid month';
     }
 }
