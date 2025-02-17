@@ -5,24 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Services\SampleService;
+use App\Services\CalenderService;
 
-class SampleController extends BaseController
+class CalenderController extends BaseController
 {
-    protected $sample;
+    protected $calendar;
 
     public function __construct(
-        SampleService $sample,
+        CalenderService $calendar,
         )
     {
-        $this->sample = $sample;
+        $this->calendar = $calendar;
     }
 
     public function post(Request $request): JsonResponse
     {
         $month = $request->input('month');
-        $nihonCalendar = $sample->getNihonCalendar($month);
-        $englishCalendar = $this->sample->post($month, $calendar);
+        $nihonCalendar =$this->calendar->getNihonCalendarData($month);
+        $englishCalendar = 
 
         return response()->json(['message' => 'ハロー']);
     }

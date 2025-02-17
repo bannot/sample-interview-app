@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SampleController;
+use App\Http\Controllers\CalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,5 @@ use App\Http\Controllers\SampleController;
 |
 */
 
-Route::get('/sample', [SampleController::class, 'post']);
+Route::get('/calender', [CalenderController::class, 'post']);
 
