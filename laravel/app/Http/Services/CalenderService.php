@@ -11,9 +11,12 @@ use App\Repositories\CalenderRepository;
  */
 class CalenderService
 {
+    protected $calenderRepository;
+
     public function __construct(
-        CalenderRepository $calenderRepository
-    ) {
+        CalenderRepository $calenderRepository,
+        ) 
+    {
         $this->calenderRepository = $calenderRepository;
     }
 
