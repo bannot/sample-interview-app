@@ -15,7 +15,7 @@ class CalenderController extends BaseController
     public function put($month): JsonResponse
     {
         $nihonCalendar =$this->calendar->getNihonCalendarData($month);
-        $englishCalendar = $this->getEnglishCalendarMonth($month);
+        $englishCalendar = $this->getEnglishCalendarData($month);
         return response()->json([
             'calender' => [
                 'nihon' => $nihonCalendar,
@@ -23,7 +23,7 @@ class CalenderController extends BaseController
             ]
         ]);
     }
-    public function getEnglishCalendarMonth(int $month): string
+    public function getEnglishCalendarData(int $month): string
     {
         $englishCalendarData = [
             1 => 'January',
