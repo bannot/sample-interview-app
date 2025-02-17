@@ -15,4 +15,3 @@ use App\Http\Controllers\CalenderController;
 */
 
 Route::get('/calender/put/{month}', [CalenderController::class, 'put']);
-
